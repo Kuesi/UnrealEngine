@@ -1,29 +1,50 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+#include <iostream>
+#include <string>
+#include <stdio.h>
 
-# Precompiled Headers
-*.gch
-*.pch
+using namespace std;
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+void PrintIntro();
+string GetGuessAndPrintBack();
 
-# Fortran module files
-*.mod
-*.smod
+int main()
+{
+    
+    PrintIntro();
+    
+   // loop for the number of turns asking for guesses
+    constexpr int NUMBER_OF_TURNS = 5;
+    for (int count = 1; count <= NUMBER_OF_TURNS; count++)
+    {
+    GetGuessAndPrintBack();
+    cout << endl;
+    }
+    
+    return 0;
+}
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+// introducing the game
+void PrintIntro()
+{
+    
+    constexpr int WORD_LENGTH = 9;
+    cout << "Welcome to Bull and Cow, a fun word game\n";
+    cout << "can u guess a " << WORD_LENGTH;
+    cout <<" letters isogram im thinking of?\n";
+    cout << endl;
+    return;
+    
+}
 
-# Executables
-*.exe
-*.out
-*.app
+    // get a guess from the user
+string GetGuessAndPrintBack()
+{
+    cout << "Please Enter ur Guess\n";
+    string Guess = "";
+    getline(cin, Guess);
+    
+    // print the guess back to the user
+    
+    cout << "Your guess was: " << Guess << endl;
+    return Guess;
+}
